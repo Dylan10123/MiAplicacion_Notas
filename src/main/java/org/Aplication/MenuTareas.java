@@ -17,12 +17,15 @@ public class MenuTareas extends JFrame {
     final private JButton todasLasTareas = new JButton();
     final private JButton btneditar = new JButton();
     final private JButton btnEliminar = new JButton();
-
+    final private JButton btnAtras = new JButton();
+    final private JButton btnCrearTarea = new JButton();
 
     final private JPanel panel1 = new JPanel(null);
     final private JPanel panel2 = new JPanel(null);
     final private JPanel panel3 = new JPanel(null);
     final private JPanel panel4 = new JPanel();
+    final private JPanel panel5 = new JPanel();
+    final private JPanel panelBotones = new JPanel(new BorderLayout());
 
     public static String nombreUsuario;
     public static int id;
@@ -55,6 +58,9 @@ public class MenuTareas extends JFrame {
         panel1.setPreferredSize(new Dimension(690, 45));
         panel1.setBackground(Color.LIGHT_GRAY);
         panel2.setBackground(Color.LIGHT_GRAY);
+
+        panelBotones.setPreferredSize(new Dimension(675, 30));
+        panelBotones.setBackground(Color.WHITE);
 
         JLabel titulo = new JLabel("TAREAS:");
         titulo.setFont(new Font("Impact", Font.BOLD, 14));
@@ -91,13 +97,20 @@ public class MenuTareas extends JFrame {
         btnEliminar.setBackground(Color.PINK);
         panel4.add(btneditar);
         btneditar.setText("Editar");
-        panel4.setBorder(BorderFactory.createEmptyBorder(0,500,0,0));
         panel4.setBackground(Color.WHITE);
 
+        panel5.add(btnAtras);
+        panel5.add(btnCrearTarea);
+        panel5.setBackground(Color.WHITE);
+        btnAtras.setText("Atras");
+        btnCrearTarea.setText("Crear tarea");
+
         panel1.add(panel2, BorderLayout.EAST);
+        panelBotones.add(panel5, BorderLayout.WEST);
+        panelBotones.add(panel4, BorderLayout.EAST);
         container.add(panel1);
         container.add(panel3);
-        container.add(panel4);
+        container.add(panelBotones);
         pack();
     }
 
@@ -188,6 +201,18 @@ public class MenuTareas extends JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Seleccione el ID de la tarea que quiere modificar.", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
+        });
+
+        btnAtras.addActionListener(e -> {
+            MenuAcciones ma = new MenuAcciones(nombreUsuario, id);
+            ma.setVisible(true);
+            dispose();
+        });
+
+        btnCrearTarea.addActionListener(e -> {
+            MenuCrearTareas mct = new MenuCrearTareas(1, nombreUsuario, id);
+            mct.setVisible(true);
+            dispose();
         });
     }
 

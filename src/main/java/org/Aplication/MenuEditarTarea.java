@@ -14,12 +14,14 @@ public class MenuEditarTarea extends JFrame{
     final private JButton cancelar = new JButton();
 
     final private JTextField textoTarea = new JTextField();
-    final private JTextField cambiarPrio = new JTextField();
 
     final private ButtonGroup radioGroup = new ButtonGroup();
     final private JRadioButton acabadas = new JRadioButton("A");
     final private JRadioButton pendientes = new JRadioButton("P");
     final private JRadioButton enProceso = new JRadioButton("EP");
+
+    final private String[] prioridades = {"1", "2", "3", "4", "5"};
+    final private JComboBox<String> boxPrioridades = new JComboBox<>(prioridades);
 
     final private JPanel panel1 = new JPanel(new BorderLayout());
     final private JPanel panel2 = new JPanel();
@@ -79,13 +81,10 @@ public class MenuEditarTarea extends JFrame{
 
         JLabel prio = new JLabel("Prioridad: ");
         panelPE.add(prio);
-        panelPE.add(cambiarPrio);
-        cambiarPrio.setPreferredSize(new Dimension(40,20));
-        cambiarPrio.setBorder(BorderFactory.createEmptyBorder(0,0,0,30));
+        panelPE.add(boxPrioridades);
+        boxPrioridades.setBorder(BorderFactory.createEmptyBorder(0,0,0,30));
         if (getPrioridad(id_Tarea) != 0){
-            cambiarPrio.setText(String.valueOf(getPrioridad(id_Tarea)));
-        } else {
-            cambiarPrio.setText("null");
+            boxPrioridades.setSelectedIndex(getPrioridad(id_Tarea) - 1);
         }
 
         JLabel estado = new JLabel("Estado: ");
@@ -119,7 +118,7 @@ public class MenuEditarTarea extends JFrame{
 
         aceptar.addActionListener(e -> {
             String texto = textoTarea.getText();
-            int prioridad = Integer.parseInt(cambiarPrio.getText());
+            int prioridad = Integer.parseInt(boxPrioridades.getSelectedItem().toString());
             String estado = null;
             if (acabadas.isSelected()){
                 estado = "Acabada";
@@ -156,7 +155,7 @@ public class MenuEditarTarea extends JFrame{
 
     private int getPrioridad(int id_Tarea) {
         String sql = "SELECT Prioridad FROM Tareas WHERE id = " + id_Tarea;
-        int prio = 0;
+        int prio;
 
         try {
             Statement statement = con.createStatement();

@@ -2,6 +2,7 @@ package org.Aplication;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLException;
 
 public class MenuAcciones extends JFrame{
 
@@ -50,7 +51,22 @@ public class MenuAcciones extends JFrame{
     }
 
     private void eventos() {
+        verTareas.addActionListener(e -> {
+            MenuTareas mt;
+            try {
+                mt = new MenuTareas(nombre_Usuario, id_Usuario);
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+            mt.setVisible(true);
+            dispose();
+        });
 
+        crearTarea.addActionListener(e -> {
+            MenuCrearTareas mct = new MenuCrearTareas(0, nombre_Usuario, id_Usuario);
+            mct.setVisible(true);
+            dispose();
+        });
     }
 
 

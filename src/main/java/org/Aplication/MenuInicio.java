@@ -23,7 +23,7 @@ public class MenuInicio extends JFrame {
     final private JPanel panel2 = new JPanel(null);
     final private JPanel panel3 = new JPanel(null);
 
-    private MenuInicio() {
+    public MenuInicio() {
           crearGUI();
           eventos();
     }
@@ -77,6 +77,12 @@ public class MenuInicio extends JFrame {
                 JOptionPane.showMessageDialog(null, "El usuario no existe", "Error", JOptionPane.ERROR_MESSAGE);
             }
 
+        });
+
+        crearUsuario.addActionListener(e -> {
+            MenuCrearUsuarios mcu = new MenuCrearUsuarios();
+            mcu.setVisible(true);
+            dispose();
         });
     }
 
