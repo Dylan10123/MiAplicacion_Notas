@@ -43,7 +43,7 @@ public class MenuCrearUsuarios extends JFrame {
         JLabel titulo = new JLabel("Creacion de usuario:");
         panel.add(titulo, BorderLayout.WEST);
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-        titulo.setFont(new Font("Impact", Font.BOLD, 16));
+        titulo.setFont(new Font("", Font.BOLD, 16));
         titulo.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
 
         JLabel lblNombre = new JLabel("Nombre: ");

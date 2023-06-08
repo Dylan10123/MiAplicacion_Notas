@@ -51,7 +51,7 @@ public class MenuCrearTareas extends JFrame {
         JLabel titulo = new JLabel("Creacion de tareas:");
         panelTitulo.add(titulo, BorderLayout.WEST);
         panelTitulo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-        titulo.setFont(new Font("Impact", Font.BOLD, 16));
+        titulo.setFont(new Font("", Font.BOLD, 16));
         titulo.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
 
         panel1.setLayout(new FlowLayout(FlowLayout.LEFT));

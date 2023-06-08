@@ -36,7 +36,7 @@ public class MenuAcciones extends JFrame{
 
         JLabel titulo = new JLabel("ACCIONES DISPONIBLES:");
         panel1.add(titulo);
-        titulo.setFont(new Font("Impact", Font.BOLD, 14));
+        titulo.setFont(new Font("", Font.BOLD, 14));
         panel1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
         panel2.add(verTareas);
