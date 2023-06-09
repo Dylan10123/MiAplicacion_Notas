@@ -59,7 +59,7 @@ public class MenuEditarTarea extends JFrame{
         panel3.setPreferredSize(new Dimension(540, 200));
 
         JLabel titulo = new JLabel("TAREA:");
-        titulo.setFont(new Font("Impact", Font.BOLD, 14));
+        titulo.setFont(new Font("", Font.BOLD, 14));
         panel1.add(titulo, BorderLayout.WEST);
         panel1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
