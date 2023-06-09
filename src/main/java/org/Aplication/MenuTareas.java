@@ -65,7 +65,7 @@ public class MenuTareas extends JFrame {
         panelBotones.setBackground(new Color(36, 33, 39));
 
         JLabel titulo = new JLabel("TAREAS:");
-        titulo.setFont(new Font("Impact", Font.BOLD, 14));
+        titulo.setFont(new Font("", Font.BOLD, 14));
         titulo.setForeground(new Color(243, 242, 239));
         panel1.add(titulo, BorderLayout.WEST);
         panel1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
