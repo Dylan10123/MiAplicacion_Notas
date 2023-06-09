@@ -61,7 +61,7 @@ public class MenuTareas extends JFrame {
 
         panel2.setBackground(new Color(116, 102, 64));
 
-        panelBotones.setPreferredSize(new Dimension(675, 30));
+        panelBotones.setPreferredSize(new Dimension(675, 35));
         panelBotones.setBackground(new Color(36, 33, 39));
 
         JLabel titulo = new JLabel("TAREAS:");

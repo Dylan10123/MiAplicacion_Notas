@@ -50,10 +50,10 @@ public class MenuEditarTarea extends JFrame{
         container.setPreferredSize(new Dimension(600, 200));
         container.setBackground(new Color(36, 33, 39));
 
-        panel1.setPreferredSize(new Dimension(590, 45));
-        panel1.setBackground(Color.LIGHT_GRAY);
+        panel1.setPreferredSize(new Dimension(590, 38));
+        panel1.setBackground(new Color(116, 102, 64));
 
-        panel2.setBackground(Color.LIGHT_GRAY);
+        panel2.setBackground(new Color(116, 102, 64));
 
         panel3.setLayout(new BoxLayout(panel3, BoxLayout.Y_AXIS));
         panel3.setPreferredSize(new Dimension(540, 125));
@@ -61,6 +61,7 @@ public class MenuEditarTarea extends JFrame{
 
         JLabel titulo = new JLabel("TAREA:");
         titulo.setFont(new Font("", Font.BOLD, 14));
+        titulo.setForeground(new Color(243, 242, 239));
         panel1.add(titulo, BorderLayout.WEST);
         panel1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
@@ -71,6 +72,7 @@ public class MenuEditarTarea extends JFrame{
         cancelar.setText("Cancelar");
 
         JLabel lblTarea = new JLabel("Tarea: ");
+        lblTarea.setForeground(new Color(243, 242, 239));
         panelTarea.add(lblTarea);
         panelTarea.add(textoTarea);
         panelTarea.setBorder(BorderFactory.createEmptyBorder(30,10,0,0));
@@ -83,6 +85,7 @@ public class MenuEditarTarea extends JFrame{
         }
 
         JLabel prio = new JLabel("Prioridad: ");
+        prio.setForeground(new Color(243, 242, 239));
         panelPE.add(prio);
         panelPE.add(boxPrioridades);
         boxPrioridades.setBorder(BorderFactory.createEmptyBorder(0,0,0,50));
@@ -92,6 +95,7 @@ public class MenuEditarTarea extends JFrame{
         }
 
         JLabel estado = new JLabel("Estado: ");
+        estado.setForeground(new Color(243, 242, 239));
         panelPE.add(estado);
         radioGroup.add(acabadas);
         radioGroup.add(pendientes);
@@ -101,8 +105,11 @@ public class MenuEditarTarea extends JFrame{
         panelPE.add(enProceso);
         panelPE.setBackground(new Color(36, 33, 39));
         acabadas.setBackground(new Color(36, 33, 39));
+        acabadas.setForeground(new Color(243, 242, 239));
         pendientes.setBackground(new Color(36, 33, 39));
+        pendientes.setForeground(new Color(243, 242, 239));
         enProceso.setBackground(new Color(36, 33, 39));
+        enProceso.setForeground(new Color(243, 242, 239));
 
         panel3.add(panelTarea);
         panel3.add(panelPE);
