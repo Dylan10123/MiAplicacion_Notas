@@ -33,31 +33,44 @@ public class MenuInicio extends JFrame {
         setTitle("Inicio de sesion");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+        container.setBackground(new Color(36, 33, 39));
 
         panel1.setLayout(new FlowLayout(FlowLayout.CENTER));
+        panel1.setBackground(new Color(36, 33, 39));
         panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
+        panel2.setBackground(new Color(36, 33, 39));
         panel3.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 10));
+        panel3.setBackground(new Color(36, 33, 39));
 
         JLabel lblNombre = new JLabel("Nombre: ");
+        lblNombre.setForeground(new Color(249, 248, 249));
         panel1.add(lblNombre);
         lblNombre.setBorder(BorderFactory.createEmptyBorder(0,27,0,0));
 
         panel1.add(textNombre);
         textNombre.setColumns(10);
+        textNombre.setBorder(BorderFactory.createLineBorder(new Color(36, 33, 39), 0));
 
         JLabel lblContra = new JLabel("Contraseña: ");
+        lblContra.setForeground(new Color(249, 248, 249));
         panel2.add(lblContra);
 
         panel2.add(contra);
         contra.setColumns(10);
+        contra.setBorder(BorderFactory.createLineBorder(new Color(36, 33, 39), 0));
 
         panel3.add(crearUsuario);
         crearUsuario.setText("Crear Usuario");
+        crearUsuario.setBackground(new Color(238, 198, 28));
+        crearUsuario.setForeground(new Color(36, 33, 39));
 
         panel3.add(iniciarSesion);
         iniciarSesion.setText("Iniciar sesion");
-        
+        iniciarSesion.setBackground(new Color(238, 198, 28));
+        iniciarSesion.setForeground(new Color(36, 33, 39));
+
         container.add(panel1);
         container.add(panel2);
         container.add(panel3);

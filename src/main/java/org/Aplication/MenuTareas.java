@@ -1,6 +1,7 @@
 package org.Aplication;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.*;
@@ -52,18 +53,20 @@ public class MenuTareas extends JFrame {
 
         container.setLayout(new FlowLayout(FlowLayout.CENTER));
         container.setPreferredSize(new Dimension(700, 300));
-        container.setBackground(Color.WHITE);
+        container.setBackground(new Color(36, 33, 39));
 
         panel1.setLayout(new BorderLayout());
-        panel1.setPreferredSize(new Dimension(690, 45));
-        panel1.setBackground(Color.LIGHT_GRAY);
-        panel2.setBackground(Color.LIGHT_GRAY);
+        panel1.setPreferredSize(new Dimension(690, 38));
+        panel1.setBackground(new Color(116, 102, 64));
+
+        panel2.setBackground(new Color(116, 102, 64));
 
         panelBotones.setPreferredSize(new Dimension(675, 30));
-        panelBotones.setBackground(Color.WHITE);
+        panelBotones.setBackground(new Color(36, 33, 39));
 
         JLabel titulo = new JLabel("TAREAS:");
         titulo.setFont(new Font("Impact", Font.BOLD, 14));
+        titulo.setForeground(new Color(243, 242, 239));
         panel1.add(titulo, BorderLayout.WEST);
         panel1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
@@ -71,39 +74,56 @@ public class MenuTareas extends JFrame {
 
         panel2.add(todasLasTareas);
         todasLasTareas.setText("Todas");
+        todasLasTareas.setBackground(new Color(243, 242, 239));
+        todasLasTareas.setForeground(new Color(36, 33, 39));
 
         panel2.add(acabadas);
         acabadas.setText("Acabadas");
+        acabadas.setBackground(new Color(243, 242, 239));
+        acabadas.setForeground(new Color(36, 33, 39));
 
         panel2.add(pendientes);
         pendientes.setText("Pendientes");
+        pendientes.setBackground(new Color(243, 242, 239));
+        pendientes.setForeground(new Color(36, 33, 39));
 
         panel2.add(enProceso);
         enProceso.setText("En proceso");
+        enProceso.setBackground(new Color(243, 242, 239));
+        enProceso.setForeground(new Color(36, 33, 39));
 
         modeloTabla = new DefaultTableModel(data, columnNames);
         table = new JTable();
         table.setModel(modeloTabla);
         table.createDefaultColumnsFromModel();
+        table.setDefaultRenderer(Object.class, new MenuTareas.CustomTableCellRenderer());
 
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setPreferredSize(new Dimension(550, 175));
+        scrollPane.setBorder(BorderFactory.createSoftBevelBorder(1));
+        scrollPane.setBackground(new Color(243, 242, 239));
 
         panel3.add(scrollPane);
+        panel3.setBorder(BorderFactory.createSoftBevelBorder(1));
+        panel3.setBackground(new Color(243, 242, 239));
         panel3.setLayout(new FlowLayout());
 
         panel4.add(btnEliminar);
         btnEliminar.setText("Eliminar");
-        btnEliminar.setBackground(Color.PINK);
+        btnEliminar.setBackground(new Color(229, 42, 68));
+        btnEliminar.setForeground(new Color(243, 242, 239));
         panel4.add(btneditar);
         btneditar.setText("Editar");
-        panel4.setBackground(Color.WHITE);
+        btneditar.setBackground(new Color(238, 198, 28));
+        panel4.setBackground(new Color(36, 33, 39));
 
         panel5.add(btnAtras);
         panel5.add(btnCrearTarea);
-        panel5.setBackground(Color.WHITE);
+        panel5.setBackground(new Color(36, 33, 39));
         btnAtras.setText("Atras");
         btnCrearTarea.setText("Crear tarea");
+        btnAtras.setBackground(new Color(238, 198, 28));
+        btnCrearTarea.setBackground(new Color(238, 198, 28));
 
         panel1.add(panel2, BorderLayout.EAST);
         panelBotones.add(panel5, BorderLayout.WEST);
@@ -401,6 +421,27 @@ public class MenuTareas extends JFrame {
             }
             data[row] = rowData;
             row++;
+        }
+    }
+
+    private static class CustomTableCellRenderer extends DefaultTableCellRenderer {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+
+            // Cambiar el color de fondo de las líneas cuya segunda celda contiene "Doe"
+            Object estado = table.getValueAt(row, 3);
+            if (estado != null && estado.toString().equals("Acabada")) {
+                component.setBackground(new Color(119, 232, 62, 218)); // Cambiar el color de fondo de la línea aquí
+            } else if (estado != null && estado.toString().equals("En proceso")){
+                component.setBackground(new Color(255, 226, 90, 255));
+            } else if (estado != null && estado.toString().equals("Pendiente")) {
+                component.setBackground(new Color(255, 75, 75, 218));
+            } else {
+                component.setBackground(table.getBackground());
+            }
+
+            return component;
         }
     }
 
