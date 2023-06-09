@@ -44,11 +44,13 @@ public class MenuCrearTareas extends JFrame {
 
         container.setPreferredSize(new Dimension(600, 125));
         container.setLayout(new FlowLayout(FlowLayout.CENTER));
+        container.setBackground(new Color(36, 33, 39));
 
-        panelTitulo.setBackground(Color.LIGHT_GRAY);
+        panelTitulo.setBackground(new Color(116, 102, 64));
         panelTitulo.setPreferredSize(new Dimension(590, 38));
 
         JLabel titulo = new JLabel("Creacion de tareas:");
+        titulo.setForeground(new Color(249, 248, 249));
         panelTitulo.add(titulo, BorderLayout.WEST);
         panelTitulo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         titulo.setFont(new Font("", Font.BOLD, 16));
@@ -56,20 +58,25 @@ public class MenuCrearTareas extends JFrame {
 
         panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
         panel1.setBorder(BorderFactory.createEmptyBorder(20,0,0,0));
+        panel1.setBackground(new Color(36, 33, 39));
 
         panel2.setLayout(new FlowLayout(FlowLayout.LEFT));
-        panel2.setBackground(Color.LIGHT_GRAY);
+        panel2.setBackground(new Color(116, 102, 64));
 
         JLabel lblTarea = new JLabel("Tarea: ");
+        lblTarea.setForeground(new Color(249, 248, 249));
         panel1.add(lblTarea);
         panel1.add(textTarea);
         textTarea.setColumns(10);
+        textTarea.setBorder(BorderFactory.createLineBorder(new Color(36, 33, 39), 0));
 
         JLabel lblPrioridad = new JLabel("Prioridad: ");
+        lblPrioridad.setForeground(new Color(249, 248, 249));
         panel1.add(lblPrioridad);
         panel1.add(boxPrioridades);
 
         JLabel lblEstados = new JLabel("Estado: ");
+        lblEstados.setForeground(new Color(249, 248, 249));
         panel1.add(lblEstados);
         panel1.add(boxEstados);
 
@@ -77,6 +84,8 @@ public class MenuCrearTareas extends JFrame {
         panel2.add(btnCrear);
         btnCrear.setText("Crear Tarea");
         btnCancelar.setText("Cancelar");
+        btnCrear.setBackground(new Color(249, 248, 249));
+        btnCancelar.setBackground(new Color(249, 248, 249));
 
         panelTitulo.add(panel2, BorderLayout.EAST);
         container.add(panelTitulo);

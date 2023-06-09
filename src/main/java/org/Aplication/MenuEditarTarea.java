@@ -31,7 +31,7 @@ public class MenuEditarTarea extends JFrame{
 
     static String nombreUsuario;
     static int id;
-    static int id_Tarea = 6;
+    static int id_Tarea;
 
     public MenuEditarTarea(String nombreUsuario, int id, int id_Tarea) {
         MenuEditarTarea.nombreUsuario = nombreUsuario;
@@ -47,8 +47,8 @@ public class MenuEditarTarea extends JFrame{
         setTitle("Usuario: " + nombreUsuario + " -- UID: " + id + " -- Tarea: " + id_Tarea);
 
         container.setLayout(new FlowLayout(FlowLayout.CENTER));
-        container.setPreferredSize(new Dimension(600, 275));
-        container.setBackground(Color.WHITE);
+        container.setPreferredSize(new Dimension(600, 200));
+        container.setBackground(new Color(36, 33, 39));
 
         panel1.setPreferredSize(new Dimension(590, 45));
         panel1.setBackground(Color.LIGHT_GRAY);
@@ -56,7 +56,8 @@ public class MenuEditarTarea extends JFrame{
         panel2.setBackground(Color.LIGHT_GRAY);
 
         panel3.setLayout(new BoxLayout(panel3, BoxLayout.Y_AXIS));
-        panel3.setPreferredSize(new Dimension(540, 200));
+        panel3.setPreferredSize(new Dimension(540, 125));
+        panel3.setBackground(new Color(36, 33, 39));
 
         JLabel titulo = new JLabel("TAREA:");
         titulo.setFont(new Font("", Font.BOLD, 14));
@@ -72,7 +73,9 @@ public class MenuEditarTarea extends JFrame{
         JLabel lblTarea = new JLabel("Tarea: ");
         panelTarea.add(lblTarea);
         panelTarea.add(textoTarea);
-        panelTarea.setBorder(BorderFactory.createEmptyBorder(40,10,0,0));
+        panelTarea.setBorder(BorderFactory.createEmptyBorder(30,10,0,0));
+        panelTarea.setBackground(new Color(36, 33, 39));
+        textoTarea.setColumns(30);
         if (getPrioridad(id_Tarea) != 0){
             textoTarea.setText(getTextoTarea(id_Tarea));
         } else {
@@ -82,7 +85,8 @@ public class MenuEditarTarea extends JFrame{
         JLabel prio = new JLabel("Prioridad: ");
         panelPE.add(prio);
         panelPE.add(boxPrioridades);
-        boxPrioridades.setBorder(BorderFactory.createEmptyBorder(0,0,0,30));
+        boxPrioridades.setBorder(BorderFactory.createEmptyBorder(0,0,0,50));
+        boxPrioridades.setBackground(new Color(36, 33, 39));
         if (getPrioridad(id_Tarea) != 0){
             boxPrioridades.setSelectedIndex(getPrioridad(id_Tarea) - 1);
         }
@@ -95,6 +99,10 @@ public class MenuEditarTarea extends JFrame{
         panelPE.add(acabadas);
         panelPE.add(pendientes);
         panelPE.add(enProceso);
+        panelPE.setBackground(new Color(36, 33, 39));
+        acabadas.setBackground(new Color(36, 33, 39));
+        pendientes.setBackground(new Color(36, 33, 39));
+        enProceso.setBackground(new Color(36, 33, 39));
 
         panel3.add(panelTarea);
         panel3.add(panelPE);

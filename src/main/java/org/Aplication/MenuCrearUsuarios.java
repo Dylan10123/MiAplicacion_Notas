@@ -34,38 +34,47 @@ public class MenuCrearUsuarios extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+        container.setBackground(new Color(36, 33, 39));
 
         panel.setBackground(Color.LIGHT_GRAY);
         panel1.setLayout(new FlowLayout(FlowLayout.CENTER));
+        panel1.setBackground(new Color(36, 33, 39));
         panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
+        panel2.setBackground(new Color(36, 33, 39));
         panel3.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 10));
+        panel3.setBackground(new Color(36, 33, 39));
 
         JLabel titulo = new JLabel("Creacion de usuario:");
         panel.add(titulo, BorderLayout.WEST);
-        panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        panel.setBorder(BorderFactory.createLineBorder(new Color(36, 33, 39), 5));
         titulo.setFont(new Font("", Font.BOLD, 16));
         titulo.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
 
         JLabel lblNombre = new JLabel("Nombre: ");
+        lblNombre.setForeground(new Color(249, 248, 249));
         panel1.add(lblNombre);
         lblNombre.setBorder(BorderFactory.createEmptyBorder(0,27,0,0));
 
         panel1.add(textNombre);
         textNombre.setColumns(10);
+        textNombre.setBorder(BorderFactory.createLineBorder(new Color(36, 33, 39), 0));
 
         JLabel lblContra = new JLabel("Contraseña: ");
         panel2.add(lblContra);
+        lblContra.setForeground(new Color(249, 248, 249));
 
         panel2.add(contra);
         contra.setColumns(10);
+        contra.setBorder(BorderFactory.createLineBorder(new Color(36, 33, 39), 0));
 
         panel3.add(btnCancelar);
         btnCancelar.setText("Cancelar");
-        btnCancelar.setBackground(Color.PINK);
+        btnCancelar.setBackground(new Color(116, 102, 64));
+        btnCancelar.setForeground(new Color(36,33,39));
 
         panel3.add(btnCrear);
         btnCrear.setText("Crear Usuario");
-        btnCrear.setBackground(new Color(140, 245, 122));
+        btnCrear.setBackground(new Color(238, 198, 28));
 
         
         container.add(panel);
