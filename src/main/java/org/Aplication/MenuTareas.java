@@ -262,9 +262,9 @@ public class MenuTareas extends JFrame {
     // Métodos para obtener los datos de la tabla de la base de datos y cargarlos en una matriz
     //Este metodo saca todas las treas del usuario actual
     public static Object[][] getAllTareas() {
-        Statement statement = null;
+        Statement statement;
         Statement statement2;
-        ResultSet resultSet = null;
+        ResultSet resultSet;
         ResultSet rs2;
         Object [][] data = null;
 
@@ -303,9 +303,9 @@ public class MenuTareas extends JFrame {
 
     //Este metodo solo muetra las tareas acabadas
     public static Object[][] getAllTareasAcabadas() {
-        Statement statement = null;
+        Statement statement;
         Statement statement2;
-        ResultSet resultSet = null;
+        ResultSet resultSet;
         ResultSet rs2;
         Object [][] data = null;
 
@@ -344,9 +344,9 @@ public class MenuTareas extends JFrame {
 
     //Este metodo solo muestra las tareas pendientes
     public static Object[][] getAllTareasPendientes() {
-        Statement statement = null;
+        Statement statement;
         Statement statement2;
-        ResultSet resultSet = null;
+        ResultSet resultSet;
         ResultSet rs2;
         Object [][] data = null;
 
@@ -385,9 +385,9 @@ public class MenuTareas extends JFrame {
 
     //Este metodo solo muestra las tareas en proceso
     public static Object[][] getAllTareasEnProceso() {
-        Statement statement = null;
+        Statement statement;
         Statement statement2;
-        ResultSet resultSet = null;
+        ResultSet resultSet;
         ResultSet rs2;
         Object [][] data = null;
 
