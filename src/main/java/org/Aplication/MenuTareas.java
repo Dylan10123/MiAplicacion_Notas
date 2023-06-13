@@ -246,7 +246,8 @@ public class MenuTareas extends JFrame {
         }
     }
 
-    // Método para obtener los datos de la tabla de la base de datos y cargarlos en una matriz
+    // Métodos para obtener los datos de la tabla de la base de datos y cargarlos en una matriz
+    //Este metodo saca todas las treas del usuario actual
     public static Object[][] getAllTareas() {
         Statement statement = null;
         Statement statement2;
@@ -287,6 +288,7 @@ public class MenuTareas extends JFrame {
         return data;
     }
 
+    //Este metodo solo muetra las tareas acabadas
     public static Object[][] getAllTareasAcabadas() {
         Statement statement = null;
         Statement statement2;
@@ -327,6 +329,7 @@ public class MenuTareas extends JFrame {
         return data;
     }
 
+    //Este metodo solo muestra las tareas pendientes
     public static Object[][] getAllTareasPendientes() {
         Statement statement = null;
         Statement statement2;
@@ -367,6 +370,7 @@ public class MenuTareas extends JFrame {
         return data;
     }
 
+    //Este metodo solo muestra las tareas en proceso
     public static Object[][] getAllTareasEnProceso() {
         Statement statement = null;
         Statement statement2;
@@ -424,6 +428,8 @@ public class MenuTareas extends JFrame {
         }
     }
 
+
+    //Metodo para cambiar el color de las lineas de cada tarea en funcion del estado en el que se encuentren
     private static class CustomTableCellRenderer extends DefaultTableCellRenderer {
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -444,6 +450,7 @@ public class MenuTareas extends JFrame {
             return component;
         }
     }
+
 
     public static void main(String[] args) {
 

@@ -78,6 +78,7 @@ public class MenuEditarTarea extends JFrame{
         panelTarea.setBorder(BorderFactory.createEmptyBorder(30,10,0,0));
         panelTarea.setBackground(new Color(36, 33, 39));
         textoTarea.setColumns(30);
+        textoTarea.setBorder(BorderFactory.createLineBorder(new Color(36, 33, 39), 0));
         if (getPrioridad(id_Tarea) != 0){
             textoTarea.setText(getTextoTarea(id_Tarea));
         } else {
@@ -89,6 +90,7 @@ public class MenuEditarTarea extends JFrame{
         panelPE.add(prio);
         panelPE.add(boxPrioridades);
         boxPrioridades.setBorder(BorderFactory.createEmptyBorder(0,0,0,50));
+        boxPrioridades.setForeground(new Color(243, 242, 239));
         boxPrioridades.setBackground(new Color(36, 33, 39));
         if (getPrioridad(id_Tarea) != 0){
             boxPrioridades.setSelectedIndex(getPrioridad(id_Tarea) - 1);
