@@ -34,11 +34,14 @@ public class MenuTareas extends JFrame {
     private static JTable table;
     private static DefaultTableModel modeloTabla;
 
-    //Estos osn datos de ejemplo:
+    //Estos son los datos que contendra la tabla
     public static Object[][] data = getAllTareas();
 
+    //Estos son los nombres de las columnas de la tabla
     String[] columnNames = {"ID", "Tarea", "Prioridad", "Estado"};
 
+    //Al constructor le pasamos el nombre y el ID de usuario para que luego pueda
+    //ejecutar las consultas basandose en el usuario con el que se ha iniciado sesion
     public MenuTareas(String nombreUsuario, int id) throws SQLException {
         MenuTareas.nombreUsuario = nombreUsuario;
         MenuTareas.id = id;
@@ -136,6 +139,7 @@ public class MenuTareas extends JFrame {
 
 
     private void eventos() {
+        //Al darle se muestran solo las tareas en las que el estado sea "Acabada"
         acabadas.addActionListener((e) -> {
             data = getAllTareasAcabadas();
 
@@ -146,6 +150,7 @@ public class MenuTareas extends JFrame {
             table.setVisible(true);
         });
 
+        //Al darle se muestran solo las tareas en las que el estado sea "Pendientes"
         pendientes.addActionListener(e -> {
             data = getAllTareasPendientes();
 
@@ -156,6 +161,7 @@ public class MenuTareas extends JFrame {
             table.setVisible(true);
         });
 
+        //Al darle se muestran solo las tareas en las que el estado sea "En proceso"
         enProceso.addActionListener(e -> {
             data = getAllTareasEnProceso();
 
@@ -166,6 +172,7 @@ public class MenuTareas extends JFrame {
             table.setVisible(true);
         });
 
+        //Al darle se muestran todas las tareas
         todasLasTareas.addActionListener(e -> {
             data = getAllTareas();
 
@@ -176,6 +183,8 @@ public class MenuTareas extends JFrame {
             table.setVisible(true);
         });
 
+        //Seleccionando el ID de una tarea de la tabla y dando a editar muestra
+        //el menu de edicion de tareas con los datos de la tarea seleccionada
         btneditar.addActionListener(e -> {
             int fila = table.getSelectedRow();
             int columna = table.getSelectedColumn();
@@ -192,6 +201,7 @@ public class MenuTareas extends JFrame {
             }
         });
 
+        //Elimina la tarea seleccionada en la tabla. (Hay que selecionar el ID de la tarea)
         btnEliminar.addActionListener(e -> {
             int fila = table.getSelectedRow();
             int columna = table.getSelectedColumn();
@@ -223,12 +233,15 @@ public class MenuTareas extends JFrame {
             }
         });
 
+        //Vuelve al menu de acciones
         btnAtras.addActionListener(e -> {
             MenuAcciones ma = new MenuAcciones(nombreUsuario, id);
             ma.setVisible(true);
             dispose();
         });
 
+        //Abre el menu de creacion de tareas y le pasa el nombre e ID de usuario.
+        //Se pasa un 1 para indicarle al menu de crear tareas cual es el menu en el que estaba anteriormente
         btnCrearTarea.addActionListener(e -> {
             MenuCrearTareas mct = new MenuCrearTareas(1, nombreUsuario, id);
             mct.setVisible(true);
@@ -429,7 +442,7 @@ public class MenuTareas extends JFrame {
     }
 
 
-    //Metodo para cambiar el color de las lineas de cada tarea en funcion del estado en el que se encuentren
+    //Metodo para cambiar el color de las líneas de cada tarea en funcion del estado en el que se encuentren
     private static class CustomTableCellRenderer extends DefaultTableCellRenderer {
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {

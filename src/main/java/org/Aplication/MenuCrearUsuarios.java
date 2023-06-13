@@ -85,12 +85,14 @@ public class MenuCrearUsuarios extends JFrame {
     }
 
     private void eventos() {
+        //Vuelve al inicio de sesion sin crear el usuario
         btnCancelar.addActionListener(e -> {
             MenuInicio mi = new MenuInicio();
             mi.setVisible(true);
             dispose();
         });
 
+        //Crea el usuario y vuelve al menu de inicio de sesion
         btnCrear.addActionListener(e -> {
             String nombre = textNombre.getText();
             String pwd = String.valueOf(contra.getPassword());

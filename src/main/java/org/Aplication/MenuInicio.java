@@ -78,6 +78,7 @@ public class MenuInicio extends JFrame {
     }
 
     private void eventos() {
+        //Al darle a iniciar sesion se pasa al menu de acciones
         iniciarSesion.addActionListener((e) -> {
             String nombre = textNombre.getText();
             String passwd = String.valueOf(contra.getPassword());
@@ -92,6 +93,7 @@ public class MenuInicio extends JFrame {
 
         });
 
+        //Al darle a crear usuario se abre el menu de creacion de usarios
         crearUsuario.addActionListener(e -> {
             MenuCrearUsuarios mcu = new MenuCrearUsuarios();
             mcu.setVisible(true);
@@ -99,6 +101,7 @@ public class MenuInicio extends JFrame {
         });
     }
 
+    //este metodo comprueba si existe un usuario con esa contraseña en la base de datos
     private boolean existeUsuario(String nombre, String contra) {
         String sql = "SELECT COUNT(*) FROM usuarios WHERE Nombre = ? AND Contra = ?";
         boolean existe = false;
@@ -119,6 +122,7 @@ public class MenuInicio extends JFrame {
         return existe;
     }
 
+    //Sacar el ID del usuario a partir del usuario y contraseña para pasarlo a menus posteriores
     private int getIdUsuario(String nombre, String contra) {
         int id = 0;
         String sql = "SELECT id FROM usuarios WHERE Nombre = ? AND Contra = ?";

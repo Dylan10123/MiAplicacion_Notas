@@ -69,6 +69,7 @@ public class MenuAcciones extends JFrame{
     }
 
     private void eventos() {
+        //Muestra el menu de ver las tareas
         verTareas.addActionListener(e -> {
             MenuTareas mt;
             try {
@@ -80,12 +81,15 @@ public class MenuAcciones extends JFrame{
             dispose();
         });
 
+        //Muestra el menu de crear tareas y le pasa el número 0 como codigo de panel anterior
         crearTarea.addActionListener(e -> {
             MenuCrearTareas mct = new MenuCrearTareas(0, nombre_Usuario, id_Usuario);
             mct.setVisible(true);
             dispose();
         });
 
+        //Muestra un selecctor de archivos para seleccionar la ruta en la que se
+        //guardara un fichero con las tareas del usuario explicadas
         guardarArchivo.addActionListener(e -> {
             JFileChooser fileChooser = new JFileChooser();
             int seleccion = fileChooser.showSaveDialog(MenuAcciones.this);
@@ -103,6 +107,7 @@ public class MenuAcciones extends JFrame{
         });
     }
 
+    //Genera el fichero de texto con las tareas del usuario
     private void guardarTareas(File file) throws IOException, SQLException {
         Statement statement = con.createStatement();
         String sql = "SELECT Tarea, Prioridad, Estado FROM tareas WHERE id_usuario = " + id_Usuario;

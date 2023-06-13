@@ -20,6 +20,7 @@ public class MenuEditarTarea extends JFrame{
     final private JRadioButton pendientes = new JRadioButton("P");
     final private JRadioButton enProceso = new JRadioButton("EP");
 
+    //Opciones del JComboBox
     final private String[] prioridades = {"1", "2", "3", "4", "5"};
     final private JComboBox<String> boxPrioridades = new JComboBox<>(prioridades);
 
@@ -122,6 +123,7 @@ public class MenuEditarTarea extends JFrame{
     }
 
     private void eventos() {
+        //Vuelve al menu de ver las tareas sin cambiar nada de la tarea seleccionada
         cancelar.addActionListener(e -> {
             MenuTareas mt;
             try {
@@ -133,10 +135,15 @@ public class MenuEditarTarea extends JFrame{
             dispose();
         });
 
+        //Cambia los datos de la tarea y vuelve al menu de ver las tareas
         aceptar.addActionListener(e -> {
             String texto = textoTarea.getText();
+
+            //Se comprueba la opcion seleccionada en el JComboBox
             int prioridad = Integer.parseInt(boxPrioridades.getSelectedItem().toString());
             String estado = null;
+
+            //Se comprueba que JRadioButton está seleccionado
             if (acabadas.isSelected()){
                 estado = "Acabada";
             } else if (pendientes.isSelected()) {
@@ -170,6 +177,7 @@ public class MenuEditarTarea extends JFrame{
         });
     }
 
+    //Extrae de la base de datos la prioridad de la tarea seleccionada para autocompletar el campo de prioridad
     private int getPrioridad(int id_Tarea) {
         String sql = "SELECT Prioridad FROM Tareas WHERE id = " + id_Tarea;
         int prio;
@@ -186,6 +194,7 @@ public class MenuEditarTarea extends JFrame{
         return prio;
     }
 
+    //Extrae de la base de datos el nombre de la tarea para autobompletar el JTextField con el nombre de la tarea
     private String getTextoTarea(int id_Tarea) {
         String sql = "SELECT Tarea FROM Tareas WHERE id = " + id_Tarea;
         String texto;

@@ -15,9 +15,11 @@ public class MenuCrearTareas extends JFrame {
 
     final private JTextField textTarea = new JTextField();
 
+    //Opciones del JComboBox de los estados
     final private String[] estados = {"Acabada", "En proceso", "Pendiente"};
     final private JComboBox<String> boxEstados = new JComboBox<>(estados);
 
+    //Opciones del JComboBox de las prioridades
     final private String[] prioridades = {"1", "2", "3", "4", "5"};
     final private JComboBox<String> boxPrioridades = new JComboBox<>(prioridades);
 
@@ -94,6 +96,9 @@ public class MenuCrearTareas extends JFrame {
     }
 
     private void eventos() {
+        //Vuelve al menu anterior.
+        //Si el codigo del menu anterior es 0, volvera al menu de acciones,
+        //y si el valor es 1, volvera al menu de ver las tareas
         btnCancelar.addActionListener(e -> {
             if (panelAnterior == 0) {
                 MenuAcciones ma = new MenuAcciones(nombre_Usuario, id_Usuario);
@@ -110,6 +115,7 @@ public class MenuCrearTareas extends JFrame {
             }
         });
 
+        //Crea la tarea con las opciones seleccionadas y regresa al menu anterior siguiendo el mismo criterio que antes
         btnCrear.addActionListener(e -> {
             String sql = "INSERT INTO Tareas (Tarea,Prioridad,Estado,id_usuario) VALUES (?, ?, ?, ?)";
             String tarea = textTarea.getText();
@@ -125,6 +131,7 @@ public class MenuCrearTareas extends JFrame {
                 statement.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Tarea creada con exito.");
 
+                //comprobar panel anterior
                 if (panelAnterior == 0) {
                     MenuAcciones ma = new MenuAcciones(nombre_Usuario, id_Usuario);
                     ma.setVisible(true);
